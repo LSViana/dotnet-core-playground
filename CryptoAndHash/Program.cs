@@ -14,8 +14,9 @@ namespace CryptoAndHash
             Console.WriteLine();
             // Symmetric crypto provide two ways to transform data using a single secret key, which can be used to encrypt and decrypt data, providing a safe way between two parts to communicate. This is not safe because the key must be shared, if it's captured, the whole process is compromised.
             SymmetricCrypto.Run();
+            Console.WriteLine();
             // Asymmetric crypto [fill it here]
-            
+            AsymmetricCrypto
         }
     }
 }

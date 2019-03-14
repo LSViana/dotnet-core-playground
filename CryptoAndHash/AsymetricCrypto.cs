@@ -4,8 +4,11 @@ using System.Text;
 
 namespace CryptoAndHash
 {
-    public static class AssymetricCrypto
+    public static class AsymetricCrypto
     {
+        public static void Run()
+        {
 
+        }
     }
 }
