@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -31,13 +33,39 @@ namespace CryptoAndHash
             Console.WriteLine();
             //
             UseKeyedHash(nameof(HMACMD5));
-        }
-
+            UseKeyedHash(nameof(HMACSHA1));
+            UseKeyedHash(nameof(HMACSHA256));
+            UseKeyedHash(nameof(HMACSHA384));
+            UseKeyedHash(nameof(HMACSHA512));
+        }                                 
+                                          
         private static void UseKeyedHash(string algorithmName)
-        {
+        {                                 
             var algorithm = KeyedHashAlgorithm.Create(algorithmName);
             ConsoleHelper.WriteHightlight($"# Starting {algorithmName} Hashing\n");
+            // Setting the fixed key to get the same results
+            algorithm.Key = Key.Take(algorithm.Key.Length).ToArray();
+            // Creating buffer to encrypt data
+            var buffer = new byte[algorithm.HashSize / 8];
+            var bytesWritten = 0;         
+            // Generating the MAC         
+            stopwatch.Start();
+            if (algorithm.TryComputeHash(WordBytes, buffer, out bytesWritten))
+            {
+                stopwatch.Stop();
+                Console.WriteLine($"[{bytesWritten} bytes in {stopwatch.ElapsedTicks} ticks]");
+                Console.Write("\t");
+                foreach (var hashByte in buffer.Take(bytesWritten))
+                {
+                    var firstHalf = (byte)(hashByte & 0b1111_0000);
+                    var secondHalf = (byte)(hashByte & 0b0000_1111);
+                    ConsoleHelper.WriteSuccess(string.Format("{0:x}{1:x}", firstHalf / 16, secondHalf));
+                }
+                Console.WriteLine();
+            }
+            //
             ConsoleHelper.WriteHightlight($"# Finishing {algorithmName} Hashing\n");
+            Console.WriteLine();
         }
 
         private static void GenerateKeys(byte length)

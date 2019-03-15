@@ -11,7 +11,7 @@ namespace CryptoAndHash
     {
         public static string Word { get; private set; }
         public static byte[] WordBytes { get; private set; }
-        public static Stopwatch StopwatchCrypto { get; private set; }
+        public static Stopwatch stopwatch;
 
         public static void Run()
         {
@@ -21,6 +21,8 @@ namespace CryptoAndHash
             Console.Write("Hash source is: ");
             ConsoleHelper.WriteHightlight(Word);
             Console.WriteLine();
+            // Creating a stopwatch instance to measure performance
+            stopwatch = new Stopwatch();
             // MD5 is Message Digest 5 (generates 128-bit, 16 bytes, hashes)
             UseHashAlgorithm(HashAlgorithmName.MD5);
             // SHA1 is Secure Hash Algorithm 1 (generates 160-bit, 20 bytes, hashes)
@@ -40,13 +42,11 @@ namespace CryptoAndHash
             // Divide this value by 8 to get the number in bytes
             var buffer = new byte[algorithm.HashSize / 8];
             var bytesWritten = 0;
-            if (StopwatchCrypto is null)
-                StopwatchCrypto = new Stopwatch();
-            StopwatchCrypto.Start();
+            stopwatch.Start();
             if (algorithm.TryComputeHash(WordBytes, buffer, out bytesWritten))
             {
-                StopwatchCrypto.Stop();
-                Console.WriteLine($"[{bytesWritten} bytes in {StopwatchCrypto.ElapsedTicks} ticks]");
+                stopwatch.Stop();
+                Console.WriteLine($"[{bytesWritten} bytes in {stopwatch.ElapsedTicks} ticks]");
                 Console.Write("\t");
                 foreach (var hashByte in buffer.Take(bytesWritten))
                 {
