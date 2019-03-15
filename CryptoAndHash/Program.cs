@@ -16,7 +16,7 @@ namespace CryptoAndHash
             SymmetricCrypto.Run();
             Console.WriteLine();
             // Asymmetric crypto [fill it here]
-            AsymmetricCrypto
+            AsymmetricCrypto.Run();
         }
     }
 }
