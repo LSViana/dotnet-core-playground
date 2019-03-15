@@ -18,7 +18,8 @@ namespace CryptoAndHash
             Word = "Lucas Viana";
             WordBytes = Encoding.UTF8.GetBytes(Word);
             //
-            Console.Write("Hash source is: ");
+            ConsoleHelper.WriteSuccess("Hash");
+            Console.Write(" source is: ");
             ConsoleHelper.WriteHightlight(Word);
             Console.WriteLine();
             // Creating a stopwatch instance to measure performance

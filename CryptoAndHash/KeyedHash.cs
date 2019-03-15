@@ -28,7 +28,8 @@ namespace CryptoAndHash
             // Creating stopwatch to measure performance
             stopwatch = new Stopwatch();
             // Showing the base message to be encrypted
-            Console.Write("Keyed Hash source is: ");
+            ConsoleHelper.WriteSuccess("Keyed Hash");
+            Console.Write(" source is: ");
             ConsoleHelper.WriteHightlight(Word);
             Console.WriteLine();
             //

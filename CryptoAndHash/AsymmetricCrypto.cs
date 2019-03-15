@@ -18,7 +18,8 @@ namespace CryptoAndHash
             Word = "Lucas Viana";
             WordBytes = Encoding.UTF8.GetBytes(Word);
             //
-            Console.Write("Hash source is: ");
+            ConsoleHelper.WriteSuccess("Asymmetric Cryptography");
+            Console.Write(" source is: ");
             ConsoleHelper.WriteHightlight(Word);
             Console.WriteLine();
             // Creating a stopwatch instance to measure performance
@@ -29,11 +30,53 @@ namespace CryptoAndHash
 
         private static void UseRSA()
         {
-            var algorithm = RSA.Create();
-            ConsoleHelper.WriteHightlight($"# Starting {nameof(RSA)} cryptography\n");
-            // Continue here
-            ConsoleHelper.WriteHightlight($"# Finishing {nameof(RSA)} cryptography\n");
+            RSAParameters exportedParameters;
+            byte[] encryptedBuffer;
+            var receiver = RSA.Create();
+            exportedParameters = receiver.ExportParameters(false);
+            var sender = RSA.Create();
+            sender.ImportParameters(exportedParameters);
+            //
+            EncryptData(sender, out encryptedBuffer);
+            //
+            DecryptData(receiver, encryptedBuffer);
+            ConsoleHelper.WriteHightlight($"# Finishing {nameof(RSA)} cryptography");
+        }
+
+        private static void DecryptData(RSA rsa, byte[] encryptedBuffer)
+        {
+            stopwatch.Restart();
+            var decryptedBuffer = rsa.Decrypt(encryptedBuffer, RSAEncryptionPadding.OaepSHA1);
+            stopwatch.Stop();
+            Console.Write("Decrypted: ");
+            WriteBytes(decryptedBuffer, false);
             Console.WriteLine();
+        }
+
+        private static void EncryptData(RSA rsa, out byte[] encryptedBuffer)
+        {
+            ConsoleHelper.WriteHightlight($"# Starting {nameof(RSA)} cryptography\n");
+            // Encrypting data using public key
+            stopwatch.Restart();
+            encryptedBuffer = rsa.Encrypt(WordBytes, RSAEncryptionPadding.OaepSHA1);
+            stopwatch.Stop();
+            Console.Write("Encrypted: ");
+            WriteBytes(encryptedBuffer);
+            Console.WriteLine();
+        }
+
+        private static void WriteBytes(byte[] buffer, bool asHex = true)
+        {
+            if (asHex)
+            {
+                foreach (var @byte in buffer)
+                {
+                    ConsoleHelper.WriteHightlight(string.Format("{0:X}", @byte));
+                }
+            }
+            else
+                ConsoleHelper.WriteHightlight(Encoding.UTF8.GetString(buffer));
+            Console.Write($" [{buffer.Length} bytes in {stopwatch.ElapsedTicks} ticks]");
         }
     }
 }

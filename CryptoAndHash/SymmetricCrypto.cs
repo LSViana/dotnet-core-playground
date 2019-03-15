@@ -25,7 +25,8 @@ namespace CryptoAndHash
             // Defining keys
             GenerateKeys((int)Math.Pow(2, sizeof(byte) * 8));
             // Printing the encryption message
-            Console.Write("Symmetric crypto source is: ");
+            ConsoleHelper.WriteSuccess("Symmetric Cryptography");
+            Console.Write(" source is: ");
             ConsoleHelper.WriteHightlight(Word);
             Console.WriteLine();
             // Creating the Stopwatch to measure performance
@@ -68,7 +69,7 @@ namespace CryptoAndHash
         private static Stream EncryptStream(Stream sourceStream, SymmetricAlgorithm algorithm)
         {
             // Creating ICryptoTransform to perform the cryptography
-            using (var encryptTransform = algorithm.CreateEncryptor(Key.Take(algorithm.KeySize / 8).ToArray(), IV.Take(algorithm.BlockSize / 8).ToArray()))
+            using ( var encryptTransform = algorithm.CreateEncryptor(Key.Take(algorithm.KeySize / 8).ToArray(), IV.Take(algorithm.BlockSize / 8).ToArray()))
             {
                 // Stream used to encrypt bytes
                 using (var encryptStream = new CryptoStream(sourceStream, encryptTransform, CryptoStreamMode.Read))
