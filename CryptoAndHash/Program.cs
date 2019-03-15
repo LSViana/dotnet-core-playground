@@ -15,7 +15,7 @@ namespace CryptoAndHash
             /// Symmetric crypto provide two ways to transform data using a single secret key, which can be used to encrypt and decrypt data, providing a safe way between two parts to communicate. This is not useful for verify authenticity among many parts, since anyone could generate new valid messages. This is not safe because the key must be shared, if it's captured, the whole process is compromised.
             SymmetricCrypto.Run();
             Console.WriteLine();
-            /// Asymmetric crypto [fill it here]
+            /// Asymmetric crypto provide two ways to transform data using a pair of public and private keys, which can be used to encrypt and decrypt data, respectively (depending on the case the order changes), providing a safe way between two parts to communicate. This may be used to verify authenticity, but not to sign data between many parts. The main weakness of this process is the possibility of someone altering the public key in the middle (a MITM attack), which would give the attacker the original message, which could be encrypted with the original addressee public key and forwarded with no one noticing.
             AsymmetricCrypto.Run();
             Console.WriteLine();
         }
