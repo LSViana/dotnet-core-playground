@@ -32,6 +32,32 @@ namespace CryptoAndHash
             // Diffie-Hellman allows the parties to share a symmetric key generated from both the public and private keys
             UseDiffieHellman();
             Console.WriteLine();
+            // DSA allows one party to verify the integrity of the data sent by the other part through the use of public and private keys
+            UseDSA();
+        }
+
+        private static void UseDSA()
+        {
+            ConsoleHelper.WriteHightlight($"# Starting {nameof(DSA)} cryptography");
+            Console.WriteLine();
+            // Creating the sender
+            var sender = DSA.Create();
+            // Signing the data using the DSA sender
+            var senderSignature = sender.SignData(WordBytes, HashAlgorithmName.SHA512);
+            Console.Write("Data signature: ");
+            WriteBytes(senderSignature);
+            Console.WriteLine();
+            // Creating the receiver
+            var receiver = DSA.Create();
+            // Verifying the signature using the sender's public key
+            receiver.ImportParameters(sender.ExportParameters(false));
+            var validSignature = receiver.VerifyData(WordBytes, senderSignature, HashAlgorithmName.SHA512);
+            Console.Write("Signature valid: ");
+            ConsoleHelper.WriteSuccess(validSignature);
+            Console.WriteLine();
+            //
+            ConsoleHelper.WriteHightlight($"# Finishing {nameof(DSA)} cryptography");
+            Console.WriteLine();
         }
 
         private static void UseDiffieHellman()
