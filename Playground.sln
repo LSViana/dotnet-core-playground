@@ -15,7 +15,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaygroundML.Model", "Playg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaygroundML.ConsoleApp", "PlaygroundML.ConsoleApp\PlaygroundML.ConsoleApp.csproj", "{33008369-1DCE-46E1-8724-DEC3274E0E09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamIO", "StreamIO\StreamIO.csproj", "{B550A14F-E680-4D35-B3EB-6ED55DE7D0E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StreamIO", "StreamIO\StreamIO.csproj", "{B550A14F-E680-4D35-B3EB-6ED55DE7D0E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multithreading", "..\dotnet-unix-playground\Playground\Multithreading\Multithreading.csproj", "{13A51DA3-226F-4CAC-8C85-FE3042C58BE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyAppTest", "FlyAppTest\FlyAppTest.csproj", "{DCB42D73-FAFD-434D-A091-D8C6824BBB65}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyChat", "FlyChat\FlyChat.csproj", "{3026B0E2-D7DE-437B-ACEC-FD23E30E4D21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyInfrastructure", "FlyInfrastructure\FlyInfrastructure.csproj", "{EE443577-373C-41BD-813F-4C5CDCD1A256}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyServer", "FlyServer\FlyServer.csproj", "{CD31CA86-3636-4B7B-A8BD-EC6BAB8B1CD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +61,26 @@ Global
 		{B550A14F-E680-4D35-B3EB-6ED55DE7D0E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B550A14F-E680-4D35-B3EB-6ED55DE7D0E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B550A14F-E680-4D35-B3EB-6ED55DE7D0E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13A51DA3-226F-4CAC-8C85-FE3042C58BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13A51DA3-226F-4CAC-8C85-FE3042C58BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13A51DA3-226F-4CAC-8C85-FE3042C58BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13A51DA3-226F-4CAC-8C85-FE3042C58BE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCB42D73-FAFD-434D-A091-D8C6824BBB65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCB42D73-FAFD-434D-A091-D8C6824BBB65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCB42D73-FAFD-434D-A091-D8C6824BBB65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCB42D73-FAFD-434D-A091-D8C6824BBB65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3026B0E2-D7DE-437B-ACEC-FD23E30E4D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3026B0E2-D7DE-437B-ACEC-FD23E30E4D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3026B0E2-D7DE-437B-ACEC-FD23E30E4D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3026B0E2-D7DE-437B-ACEC-FD23E30E4D21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE443577-373C-41BD-813F-4C5CDCD1A256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE443577-373C-41BD-813F-4C5CDCD1A256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE443577-373C-41BD-813F-4C5CDCD1A256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE443577-373C-41BD-813F-4C5CDCD1A256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD31CA86-3636-4B7B-A8BD-EC6BAB8B1CD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD31CA86-3636-4B7B-A8BD-EC6BAB8B1CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD31CA86-3636-4B7B-A8BD-EC6BAB8B1CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD31CA86-3636-4B7B-A8BD-EC6BAB8B1CD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

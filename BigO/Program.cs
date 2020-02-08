@@ -6,7 +6,7 @@ namespace BigO
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            $"[{this.GetType().Name}] " + "Hello World!");
         }
     }
 }

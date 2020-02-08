@@ -21,7 +21,7 @@ namespace CryptoAndHash
             ConsoleHelper.WriteSuccess("Hash");
             Console.Write(" source is: ");
             ConsoleHelper.WriteHightlight(Word);
-            Console.WriteLine();
+            $"[{this.GetType().Name}] " + );
             // Creating a stopwatch instance to measure performance
             stopwatch = new Stopwatch();
             // MD5 is Message Digest 5 (generates 128-bit, 16 bytes, hashes)
@@ -47,7 +47,7 @@ namespace CryptoAndHash
             if (algorithm.TryComputeHash(WordBytes, buffer, out bytesWritten))
             {
                 stopwatch.Stop();
-                Console.WriteLine($"[{bytesWritten} bytes in {stopwatch.ElapsedTicks} ticks]");
+                $"[{this.GetType().Name}] " + $"[{bytesWritten} bytes in {stopwatch.ElapsedTicks} ticks]");
                 Console.Write("\t");
                 foreach (var hashByte in buffer.Take(bytesWritten))
                 {
@@ -55,11 +55,11 @@ namespace CryptoAndHash
                     var secondHalf = (byte)(hashByte & 0b0000_1111);
                     ConsoleHelper.WriteSuccess(string.Format("{0:x}{1:x}", firstHalf / 16, secondHalf));
                 }
-                Console.WriteLine();
+                $"[{this.GetType().Name}] " + );
             }
             //
             ConsoleHelper.WriteHightlight($"# Finishing {hashAlgorithmName.Name} Hashing\n");
-            Console.WriteLine();
+            $"[{this.GetType().Name}] " + );
         }
     }
 }

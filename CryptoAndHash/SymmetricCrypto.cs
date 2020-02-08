@@ -28,7 +28,7 @@ namespace CryptoAndHash
             ConsoleHelper.WriteSuccess("Symmetric Cryptography");
             Console.Write(" source is: ");
             ConsoleHelper.WriteHightlight(Word);
-            Console.WriteLine();
+            $"[{this.GetType().Name}] " + );
             // Creating the Stopwatch to measure performance
             stopwatch = new Stopwatch();
             //
@@ -63,7 +63,7 @@ namespace CryptoAndHash
             }
             //
             ConsoleHelper.WriteHightlight($"# Finishing {algorithmName} cryptography\n");
-            Console.WriteLine();
+            $"[{this.GetType().Name}] " + );
         }
 
         private static Stream EncryptStream(Stream sourceStream, SymmetricAlgorithm algorithm)
@@ -135,7 +135,7 @@ namespace CryptoAndHash
             Console.BackgroundColor = backgroundColor;
             Console.ForegroundColor = foregroundColor;
             Console.Write($" [{stream.Length} bytes in {stopwatch.ElapsedTicks} ticks]");
-            Console.WriteLine();
+            $"[{this.GetType().Name}] " + );
         }
     }
 }

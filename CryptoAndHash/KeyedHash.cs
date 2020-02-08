@@ -31,7 +31,7 @@ namespace CryptoAndHash
             ConsoleHelper.WriteSuccess("Keyed Hash");
             Console.Write(" source is: ");
             ConsoleHelper.WriteHightlight(Word);
-            Console.WriteLine();
+            $"[{this.GetType().Name}] " + );
             //
             UseKeyedHash(nameof(HMACMD5));
             UseKeyedHash(nameof(HMACSHA1));
@@ -54,7 +54,7 @@ namespace CryptoAndHash
             if (algorithm.TryComputeHash(WordBytes, buffer, out bytesWritten))
             {
                 stopwatch.Stop();
-                Console.WriteLine($"[{bytesWritten} bytes in {stopwatch.ElapsedTicks} ticks]");
+                $"[{this.GetType().Name}] " + $"[{bytesWritten} bytes in {stopwatch.ElapsedTicks} ticks]");
                 Console.Write("\t");
                 foreach (var hashByte in buffer.Take(bytesWritten))
                 {
@@ -62,11 +62,11 @@ namespace CryptoAndHash
                     var secondHalf = (byte)(hashByte & 0b0000_1111);
                     ConsoleHelper.WriteSuccess(string.Format("{0:x}{1:x}", firstHalf / 16, secondHalf));
                 }
-                Console.WriteLine();
+                $"[{this.GetType().Name}] " + );
             }
             //
             ConsoleHelper.WriteHightlight($"# Finishing {algorithmName} Hashing\n");
-            Console.WriteLine();
+            $"[{this.GetType().Name}] " + );
         }
 
         private static void GenerateKeys(byte length)
