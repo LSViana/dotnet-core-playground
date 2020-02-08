@@ -37,9 +37,9 @@ namespace PlaygroundML.ConsoleApp
             // Try a single prediction
             ModelOutput predictionResult = predEngine.Predict(sampleData);
 
-            $"[{this.GetType().Name}] " + $"Single Prediction --> Actual value: {sampleData.Sentiment} | Predicted value: {predictionResult.Prediction}");
+            Console.WriteLine($"Single Prediction --> Actual value: {sampleData.Sentiment} | Predicted value: {predictionResult.Prediction}");
 
-            $"[{this.GetType().Name}] " + "=============== End of process, hit any key to finish ===============");
+            Console.WriteLine("=============== End of process, hit any key to finish ===============");
             Console.ReadKey();
         }
 

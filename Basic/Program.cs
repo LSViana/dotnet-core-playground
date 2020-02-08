@@ -6,7 +6,7 @@ namespace Basic
     {
         static void Main(string[] args)
         {
-            $"[{this.GetType().Name}] " + "Greetings, universe!");
+            Console.WriteLine("Greetings, universe!");
         }
     }
 }

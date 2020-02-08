@@ -28,7 +28,7 @@ namespace MachineLearning
             // True is toxic, false is non-toxic
             ModelOutput result = predEngine.Predict(input);
 
-            $"[{this.GetType().Name}] " + $"Text: {input.SentimentText} | Prediction: {(Convert.ToBoolean(result.Prediction) ? "Toxic" : "Non Toxic")} sentiment");
+            Console.WriteLine($"Text: {input.SentimentText} | Prediction: {(Convert.ToBoolean(result.Prediction) ? "Toxic" : "Non Toxic")} sentiment");
         }
     }
 }

@@ -63,11 +63,11 @@ namespace PlaygroundML.ConsoleApp
 
         public static ITransformer TrainModel(MLContext mlContext, IDataView trainingDataView, IEstimator<ITransformer> trainingPipeline)
         {
-            $"[{this.GetType().Name}] " + "=============== Training  model ===============");
+            Console.WriteLine("=============== Training  model ===============");
 
             ITransformer model = trainingPipeline.Fit(trainingDataView);
 
-            $"[{this.GetType().Name}] " + "=============== End of training process ===============");
+            Console.WriteLine("=============== End of training process ===============");
             return model;
         }
 
@@ -75,16 +75,16 @@ namespace PlaygroundML.ConsoleApp
         {
             // Cross-Validate with single dataset (since we don't have two datasets, one for training and for evaluate)
             // in order to evaluate and get the model's accuracy metrics
-            $"[{this.GetType().Name}] " + "=============== Cross-validating to get model's accuracy metrics ===============");
+            Console.WriteLine("=============== Cross-validating to get model's accuracy metrics ===============");
             var crossValidationResults = mlContext.BinaryClassification.CrossValidateNonCalibrated(trainingDataView, trainingPipeline, numberOfFolds: 5, labelColumnName: "Sentiment");
             PrintBinaryClassificationFoldsAverageMetrics(crossValidationResults);
         }
         private static void SaveModel(MLContext mlContext, ITransformer mlModel, string modelRelativePath, DataViewSchema modelInputSchema)
         {
             // Save/persist the trained model to a .ZIP file
-            $"[{this.GetType().Name}] " + $"=============== Saving the model  ===============");
+            Console.WriteLine($"=============== Saving the model  ===============");
             mlContext.Model.Save(mlModel, modelInputSchema, GetAbsolutePath(modelRelativePath));
-            $"[{this.GetType().Name}] " + "The model is saved to {0}", GetAbsolutePath(modelRelativePath));
+            Console.WriteLine("The model is saved to {0}", GetAbsolutePath(modelRelativePath));
         }
 
         public static string GetAbsolutePath(string relativePath)
@@ -99,12 +99,12 @@ namespace PlaygroundML.ConsoleApp
 
         public static void PrintBinaryClassificationMetrics(BinaryClassificationMetrics metrics)
         {
-            $"[{this.GetType().Name}] " + $"************************************************************");
-            $"[{this.GetType().Name}] " + $"*       Metrics for binary classification model      ");
-            $"[{this.GetType().Name}] " + $"*-----------------------------------------------------------");
-            $"[{this.GetType().Name}] " + $"*       Accuracy: {metrics.Accuracy:P2}");
-            $"[{this.GetType().Name}] " + $"*       Auc:      {metrics.AreaUnderRocCurve:P2}");
-            $"[{this.GetType().Name}] " + $"************************************************************");
+            Console.WriteLine($"************************************************************");
+            Console.WriteLine($"*       Metrics for binary classification model      ");
+            Console.WriteLine($"*-----------------------------------------------------------");
+            Console.WriteLine($"*       Accuracy: {metrics.Accuracy:P2}");
+            Console.WriteLine($"*       Auc:      {metrics.AreaUnderRocCurve:P2}");
+            Console.WriteLine($"************************************************************");
         }
 
 
@@ -118,11 +118,11 @@ namespace PlaygroundML.ConsoleApp
             var AccuraciesConfidenceInterval95 = CalculateConfidenceInterval95(AccuracyValues);
 
 
-            $"[{this.GetType().Name}] " + $"*************************************************************************************************************");
-            $"[{this.GetType().Name}] " + $"*       Metrics for Binary Classification model      ");
-            $"[{this.GetType().Name}] " + $"*------------------------------------------------------------------------------------------------------------");
-            $"[{this.GetType().Name}] " + $"*       Average Accuracy:    {AccuracyAverage:0.###}  - Standard deviation: ({AccuraciesStdDeviation:#.###})  - Confidence Interval 95%: ({AccuraciesConfidenceInterval95:#.###})");
-            $"[{this.GetType().Name}] " + $"*************************************************************************************************************");
+            Console.WriteLine($"*************************************************************************************************************");
+            Console.WriteLine($"*       Metrics for Binary Classification model      ");
+            Console.WriteLine($"*------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine($"*       Average Accuracy:    {AccuracyAverage:0.###}  - Standard deviation: ({AccuraciesStdDeviation:#.###})  - Confidence Interval 95%: ({AccuraciesConfidenceInterval95:#.###})");
+            Console.WriteLine($"*************************************************************************************************************");
         }
 
         public static double CalculateStandardDeviation(IEnumerable<double> values)
