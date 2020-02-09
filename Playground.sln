@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyServer", "FlyServer\FlyS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multithreading", "Multithreading\Multithreading.csproj", "{7B2FDBE3-144A-4A00-89BF-80EF1EC12168}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQL.NET", "GraphQL.NET\GraphQL.NET.csproj", "{CB2A700A-67E1-41EA-BABF-756A92D1E78F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.NET", "GraphQL.NET\GraphQL.NET.csproj", "{CB2A700A-67E1-41EA-BABF-756A92D1E78F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQL.ASP", "GraphQL.ASP\GraphQL.ASP.csproj", "{C924EF48-DC17-4375-B9A3-8F41553E9F1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{CB2A700A-67E1-41EA-BABF-756A92D1E78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB2A700A-67E1-41EA-BABF-756A92D1E78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB2A700A-67E1-41EA-BABF-756A92D1E78F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C924EF48-DC17-4375-B9A3-8F41553E9F1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C924EF48-DC17-4375-B9A3-8F41553E9F1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C924EF48-DC17-4375-B9A3-8F41553E9F1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C924EF48-DC17-4375-B9A3-8F41553E9F1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
